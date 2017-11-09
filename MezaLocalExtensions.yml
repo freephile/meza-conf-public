@@ -1,0 +1,338 @@
+---
+list:
+#
+# Extensions loaded with wfLoadExtension()
+#
+- name: AJAXPoll
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AJAXPoll.git
+  version: "{{ mediawiki_default_branch }}"
+- name: AntiSpoof
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiSpoof.git
+  version: "{{ mediawiki_default_branch }}"
+# This is either old, or a plugin. Check documentation for CentralAuth
+# - name: AntiSpoofForCentralAuth
+#   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiSpoofForCentralAuth.git
+#   version: "{{ mediawiki_default_branch }}"
+- name: CategoryTree
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CategoryTree.git
+  # CategoryTree didn't convert to extension registration until 1_28
+  version: "{{ mediawiki_default_branch }}"
+
+# - name: CentralAuth
+#   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CentralAuth.git
+#   version: "{{ mediawiki_default_branch }}"
+
+- name: CheckUser
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CheckUser.git
+  version: "{{ mediawiki_default_branch }}"
+- name: ConfirmEdit
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ConfirmEdit.git
+  version: "{{ mediawiki_default_branch }}"
+- name: Gadgets
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Gadgets.git
+  version: "{{ mediawiki_default_branch }}"
+- name: MobileFrontend
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MobileFrontend.git
+  version: "{{ mediawiki_default_branch }}"
+  config: |
+    $wgMFAutodetectMobileView = true;
+- name: MsUpload
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MsUpload.git
+  version: "{{ mediawiki_default_branch }}"
+  config: |
+    $wgMSU_showAutoCat = true; // If true, files uploaded while editing a category will be added to that category
+    $wgMSU_checkAutoCat = true; // Whether the checkbox for the above mentioned case is checked by default
+    $wgMSU_imgParams = '400px'; // The default parameters for inserted images
+    $wgMSU_useDragDrop = true; // Should the drag & drop area be shown?
+    $wgMSU_useMsLinks = false; // Should we allow to insert links in the style of the Extension:MsLinks?
+- name: Nuke
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Nuke.git
+  version: "{{ mediawiki_default_branch }}"
+- name: Renameuser
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Renameuser.git
+  version: "{{ mediawiki_default_branch }}"
+
+#
+# Extensions loaded with legacy require_once method
+#
+- name: AntiBot
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiBot.git
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+- name: CreateRedirect
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CreateRedirect.git
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+# possible widget? or just don't do it? or download the code manually
+# - name: FollowButton
+#   https://www.mediawiki.org/wiki/Extension:FollowButton
+- name: Loops
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Loops.git
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+  config: |
+    ExtLoops::$maxLoops = 5000;
+- name: MagicNoCache
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MagicNoCache.git
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+- name: MyVariables
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MyVariables.git
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+# unmaintained. May be problematic
+- name: NoTitle
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/NoTitle.git
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+- name: OpenGraphMeta
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OpenGraphMeta.git
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+#- name: SimpleFarm
+#  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SimpleFarm
+#  version: "{{ mediawiki_default_branch }}"
+#  legacy_load: True
+- name: Widgets
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Widgets.git
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+  # this module requires a git submodule update --init; thus the next line
+  git_submodules: True
+
+#
+# libraries loaded by composer
+#
+- name: DataValues
+  #repo: https://github.com/DataValues/DataValues.git
+  composer: "data-values/data-values"
+  version: "~1.0"
+- name: DataValuesCommon
+  composer: "data-values/common"
+  version: "0.3.*"
+- name: DataValuesGeo
+  composer: "data-values/geo"
+  version: "1.2.*"
+- name: DataValuesInterfaces
+  composer: "data-values/interfaces"
+  version: "0.2.*"
+- name: DataValuesTime
+  composer: "data-values/time"
+  version: "0.8.*"
+- name: DataValuesValidators
+  composer: "data-values/validators"
+  version: "0.1.*"
+- name: ParserHooks
+  composer: mediawiki/parser-hooks
+  version: "~1.5"
+- name: WikiSEO
+  # repo: https://github.com/tinymighty/wiki-seo.git WikiSEO
+  composer: tinymighty/wiki-seo
+  version: "~1.2"
+
+
+### Added for freephile
+
+## This content was produced with
+## php /opt/meza/src/scripts/importExtensions.php https://freephile.org/w/api.php
+
+# Here are the extensions in core
+# AdminLinks
+# ApprovedRevs
+# Arrays
+# BatchUserRights
+# CharInsert
+# CirrusSearch
+# Cite
+# CollapsibleVector
+# ContributionScores
+# CopyWatchers
+# DataTransfer
+# DismissableSiteNotice
+# DisplayTitle
+# Echo
+# Elastica
+# ExternalData
+# HeaderFooter
+# HeaderTabs
+# ImageMap
+# ImagesLoaded
+# InputBox
+# Interwiki
+# LabeledSectionTransclusion
+# Maps
+# MasonryMainPage
+# NumerAlpha
+# PageForms
+# PageImporter
+# ParserFunctionHelper
+# ParserFunctions
+# PipeEscape
+# ReplaceText
+# SemanticCompoundQueries
+# SemanticDrilldown
+# SemanticInternalObjects
+# Semantic
+# SemanticMeetingMinutes
+# Semantic
+# SimpleMathJax
+# StringFunctionsEscaped
+# SubPageList
+# SyntaxHighlight_GeSHi
+# TalkRight
+# Thanks
+# UniversalLanguageSelector
+# UploadWizard
+# Variables
+# VisualEditor
+# WatchAnalytics
+# WhoIsWatching
+# WikiEditor
+# Wiretap
+# YouTube
+
+#  Here are additional extensions from MezaLocalExtensions.yml
+# AJAXPoll
+# AntiBot
+# AntiSpoof
+# AntiSpoofForCentralAuth
+# CategoryTree
+# CentralAuth
+# CheckUser
+# ConfirmEdit
+# CreateRedirect
+# DataValues
+# DataValuesCommon
+# DataValuesGeo
+# DataValuesInterfaces
+# DataValuesTime
+# DataValuesValidators
+# FollowButton
+# Gadgets
+# Loops
+# MagicNoCache
+# MobileFrontend
+# MsUpload
+# MyVariables
+# NoTitle
+# Nuke
+# OpenGraphMeta
+# ParserHooks
+# Renameuser
+# Widgets
+# WikiSEO
+
+- name: BetaFeatures
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/BetaFeatures
+  version: "{{ mediawiki_default_branch }}"
+  config: |
+    $wgRelatedArticlesLoggingSamplingRate = 1;
+    $wgRelatedArticlesShowReadMore = true;
+    $wgRelatedArticlesShowInFooter = true;
+    $wgRelatedArticlesUseCirrusSearch = true;
+
+# Bootstrap is installed by composer
+# extra rules that I didn't have before, but enable all Bootstrap features
+- name: Bootstrap
+  composer: "mediawiki/bootstrap"
+  version: ~1.0
+  config: |
+    $wgHooks['SetupAfterCache'][]=function(){
+        \Bootstrap\BootstrapManager::getInstance()->addAllBootstrapModules();
+        return true;
+    };
+
+    $wgHooks['ParserAfterParse'][]=function( Parser &$parser, &$text, StripState &$stripState ){
+        $parser->getOutput()->addModuleStyles( 'ext.bootstrap.styles' );
+        $parser->getOutput()->addModuleScripts( 'ext.bootstrap.scripts' );
+        return true;
+    };
+- name: CSS
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CSS.git
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+- name: CategorySuggest
+  repo: https://github.com/middlebury/CategorySuggest.git
+  version: tags/CategorySuggest-1.8
+  legacy_load: True
+- name: CiteThisPage
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CiteThisPage.git
+  version: "{{ mediawiki_default_branch }}"
+# The Collection extension should work in an SSL environment, with External
+# render service.  @FIXME review the status and setup
+- name: Collection
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Collection.git
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+  config: |
+    // New configuration of Collection
+    // $wgCollectionPODPartners = false; # to disable print on demand
+    $wgCollectionPODPartners = array(
+        'pediapress' => array(
+            'name' => 'PediaPress',
+            'url' => 'https://pediapress.com/',
+            'posturl' => 'https://pediapress.com/api/collections/',
+            'infopagetitle' => 'coll-order_info_article',
+        ),
+    );
+
+    $wgCollectionMWServeURL = "http://tools.pediapress.com/mw-serve/";
+
+    // mw-render --list-writers will show what's availabe locally
+    $wgCollectionFormats = array(
+        'rl' => 'PDF', # enabled by default
+        'odf' => 'ODT',
+    //    'docbook' => 'DocBook XML',
+        'xhtml' => 'XHTML 1.0 Transitional',
+        'epub' => 'e-book (EPUB)',
+        'zim' => 'Kiwix (OpenZIM)',
+    );
+    // add in permissions for saving collections
+    $wgGroupPermissions['user']['collectionsaveasuserpage'] = true;
+    $wgGroupPermissions['sysop']['collectionsaveascommunitypage'] = true;
+
+- name: EmbedVideo
+  repo: https://github.com/HydraWiki/mediawiki-embedvideo.git
+  version: tags/v2.7.0
+# Add to pre-LocalSettings.php
+# $wgNamespacesWithSubpages[NS_MAIN] = true;
+- name: Html2Wiki
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Html2Wiki.git
+  version: master
+  composer_merge: True
+- name: Poem
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Poem
+  version: "{{ mediawiki_default_branch }}"
+- name: SVGEdit
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/SVGEdit
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+  config: |
+    $wgSVGEditEditor = "$wgScriptPath/extensions/SVGEdit/svg-edit/svg-editor.html";
+- name: Scribunto
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Scribunto
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+  config: |
+    $wgScribuntoDefaultEngine = 'luastandalone';
+    $wgScribuntoUseGeSHi = true;
+- name: UserMerge
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/UserMerge.git
+  version: "{{ mediawiki_default_branch }}"
+  config: |
+    // By default nobody can use this function, enable for bureaucrat?
+    $wgGroupPermissions['bureaucrat']['usermerge'] = true;
+- name: WebChat
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/WebChat
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+  config: |
+    // IRC Server to connect to, not required when using the freenodeChat web client.
+    $wgWebChatServer  = '';
+    // Channel to connect to.
+    $wgWebChatChannel = '#qualitybox';
+    // Which web chat client to use, 'freenodeChat' is required when connecting to freenode,
+    // but 'Mibbit' can be used for other networks.
+    $wgWebChatClient = 'freenodeChat';
+
+
