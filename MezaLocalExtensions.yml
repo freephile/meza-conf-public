@@ -300,6 +300,10 @@ list:
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Html2Wiki.git
   version: master
   composer_merge: True
+- name: PdfHandler
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/PdfHandler
+  version: "{{ mediawiki_default_branch }}"
+
 - name: Poem
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Poem
   version: "{{ mediawiki_default_branch }}"
