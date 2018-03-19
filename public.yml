@@ -5,11 +5,11 @@
 # deploy of the application
 
 # Used for importing wikis
-#backups_src_sql_path: /tmp/<id> 
+#backups_src_sql_path: /tmp/<id>
 #backups_src_uploads_path: /tmp/<id>/uploads
 # alt_remote_user: joe
-backups_src_sql_path: /opt/data-meza/backups/monolith/<id> 
-backups_src_uploads_path: /opt/data-meza/backups/monolith/<id>/uploads
+# backups_src_sql_path: /opt/data-meza/backups/monolith/<id>
+# backups_src_uploads_path: /opt/data-meza/backups/monolith/<id>/uploads
 
 
 
@@ -41,11 +41,18 @@ elasticsearch_major_version: "2.x"
 
 
 
-# backups_src_sql_path: /tmp/<id> 
+# backups_src_sql_path: /tmp/<id>
 # backups_src_uploads_path: /tmp/<id>/uploads
 # alt_remote_user: greg
 
-
+# Pretty means we use 'short urls'
+# Replaces wiki/index.php/Main_Page with /wiki/Main_Page
+m_pretty: True
+# Extra pretty means Do you want REST-style action verbs?
+# replaces Main_Page?action=history with Main_Page/history
+m_extra_pretty: True
+# does this wiki use paths or subdomains?
+m_wiki_url_style: subdomain
 
 # Set a default authentication method for all wikis that don't specify one
 # FIXME #763: List types, and descriptions
