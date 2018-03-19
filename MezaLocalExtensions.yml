@@ -17,6 +17,37 @@ list:
   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CategoryTree.git
   # CategoryTree didn't convert to extension registration until 1_28
   version: "{{ mediawiki_default_branch }}"
+  config: |
+    //    maximum number of children shown in a tree node. Default is 200.
+    $wgCategoryTreeMaxChildren = 200;
+    //    enable <categorytree> tag. Default is true.
+    $wgCategoryTreeAllowTag = TRUE;
+    //    loads the first level of the tree in a <categorytree> dynamically. This way, the cache does not need to be disabled. Default is false.
+    $wgCategoryTreeDynamicTag = TRUE;
+    //    disables the parser cache for pages with a <categorytree> tag. Default is true.
+    $wgCategoryTreeDisableCache = FALSE;
+    //    enable HTTP cache for anon users. Default is false.
+    $wgCategoryTreeHTTPCache = TRUE;
+    //    do not show the namespace name for pages and categories. Default is false, namespaces are shown unless showing categories only. Deprecated as of rev:36864, July 2008: use $wgCategoryTreeDefaultOptions['hideprefix'] instead.
+    $wgCategoryTreeDefaultOptions['hideprefix'] =TRUE; // $wgCategoryTreeOmitNamespace
+    //    an array defining the maximum depth for each mode, to which the tree may be expanded initially using the depth parameterin a <category> tag. Per default, this is set to 2 for the "categories" mode, and 1 for other modes. To set it to 3 for categories and 2 for other modes, for example, you can use $wgCategoryTreeMaxDepth = array(CT_MODE_PAGES => 2, CT_MODE_ALL => 2, CT_MODE_CATEGORIES => 3);.
+    $wgCategoryTreeMaxDepth= array(CT_MODE_PAGES => 2, CT_MODE_ALL => 2, CT_MODE_CATEGORIES => 3);
+    //    the default mode to use when no mode attribute is specified in a <categorytree> tag. May be CT_MODE_CATEGORIES (the default), CT_MODE_PAGES, or CT_MODE_ALL.
+    $wgCategoryTreeDefaultMode = CT_MODE_ALL;
+    //    the mode to use when rendering trees on category pages. Deprecated as of rev:36864, July 2008: use $wgCategoryTreeCategoryPageOptions['mode'] instead.
+    $wgCategoryTreeCategoryPageOptions['mode'] = CT_MODE_ALL; // $wgCategoryTreeCategoryPageMode
+    //    if true, forces the scripts needed by CategoryTree on every page, instead of on-demand. This may be needed if a CategoryTree is embedded in an unusualy way, for example in a custom skin or in a system message (since rev:36888, July 2008).
+    // NOT WORKING in freephile skin $wgCategoryTreeSidebarRoot = 'People';
+    //    root category to use for integrating the category tree in the sidebar (since rev:36920, July 2008). If not set, no tree is integrated (this is the default). Integrating a CategoryTree into the sidebar only works with skins based upon SkinTemplate,that is, Modern, Monobook, Chick, Simple, and MySkin, but not Standard, Nostalgia or CologneBlue.
+    $wgCategoryTreeForceHeaders = TRUE;
+    //    default options to apply, as an array (since rev:36864, July 2008). The avialable options are described above.
+    $wgCategoryTreeDefaultOptions = array();
+    //    options to use on category pages, as an array (since rev:36864, July 2008).
+    $wgCategoryTreeCategoryPageOptions = array();
+    //    options to use on Special:CategoryTree, as an array (since rev:36864, July 2008).
+    $wgCategoryTreeSpecialPageOptions = array();
+    //    options to use when showing the tree in the sidebar, as an array (since rev:36920, July 2008).
+    $wgCategoryTreeSidebarOptions = array();
 
 # - name: CentralAuth
 #   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CentralAuth.git
@@ -225,11 +256,6 @@ list:
 - name: BetaFeatures
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/BetaFeatures
   version: "{{ mediawiki_default_branch }}"
-  config: |
-    $wgRelatedArticlesLoggingSamplingRate = 1;
-    $wgRelatedArticlesShowReadMore = true;
-    $wgRelatedArticlesShowInFooter = true;
-    $wgRelatedArticlesUseCirrusSearch = true;
 
 # Bootstrap is installed by composer
 # extra rules that I didn't have before, but enable all Bootstrap features
@@ -247,6 +273,7 @@ list:
         $parser->getOutput()->addModuleScripts( 'ext.bootstrap.scripts' );
         return true;
     };
+
 - name: CSS
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CSS.git
   version: "{{ mediawiki_default_branch }}"
@@ -255,6 +282,9 @@ list:
   repo: https://github.com/middlebury/CategorySuggest.git
   version: tags/CategorySuggest-1.8
   legacy_load: True
+- name: WikiCategoryTagCloud
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiCategoryTagCloud
+  version: "{{ mediawiki_default_branch }}"
 - name: CiteThisPage
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CiteThisPage.git
   version: "{{ mediawiki_default_branch }}"
@@ -300,6 +330,14 @@ list:
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Html2Wiki.git
   version: master
   composer_merge: True
+
+- name: PageSchemas
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/PageSchemas
+  version: master
+  legacy_load: True
+  config: |
+    // $wgGroupPermissions['sysop']['generatepages'] = true; // default
+
 - name: PdfHandler
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/PdfHandler
   version: "{{ mediawiki_default_branch }}"
@@ -307,6 +345,17 @@ list:
 - name: Poem
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Poem
   version: "{{ mediawiki_default_branch }}"
+
+- name: RelatedArticles
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/RelatedArticles.git
+  version: "{{ mediawiki_default_branch }}"
+  config: |
+    $wgRelatedArticlesFooterWhitelistedSkins = ['vector','chameleon','foreground','modern','cologneblue','monobook'];
+    $wgRelatedArticlesUseCirrusSearch = true;
+    $wgRelatedArticlesLoggingSamplingRate = 1;
+    $wgRelatedArticlesShowReadMore = true;
+    $wgRelatedArticlesShowInFooter = true;
+
 - name: SVGEdit
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/SVGEdit
   version: "{{ mediawiki_default_branch }}"
@@ -338,5 +387,3 @@ list:
     // Which web chat client to use, 'freenodeChat' is required when connecting to freenode,
     // but 'Mibbit' can be used for other networks.
     $wgWebChatClient = 'freenodeChat';
-
-
