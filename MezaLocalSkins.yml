@@ -1,0 +1,26 @@
+---
+list:
+# You can add any wiki-specific skins here
+
+- name: Chameleon
+  composer: "mediawiki/chameleon-skin"
+  version: ~1.0
+  config: |
+    $wgDefaultSkin='chameleon';
+    $egChameleonLayoutFile= "{{m_mediawiki}}/skins/chameleon/layouts/fixedhead.xml";
+
+- name: Foreground
+  repo: https://github.com/thingles/foreground.git
+  version: tags/v1.2.0
+  config: |
+    $wgForegroundFeatures = array(
+      'showActionsForAnon' => true,
+      'NavWrapperType' => 'divonly',
+      'showHelpUnderTools' => true,
+      'showRecentChangesUnderTools' => true,
+      'wikiName' => &$GLOBALS['wgSitename'],
+      'navbarIcon' => false,
+      'IeEdgeCode' => 1,
+      'showFooterIcons' => 0,
+      'addThisFollowPUBID' => ''
+    );
