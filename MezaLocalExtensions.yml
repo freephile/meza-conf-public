@@ -346,15 +346,15 @@ list:
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Poem
   version: "{{ mediawiki_default_branch }}"
 
-- name: RelatedArticles
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/RelatedArticles.git
-  version: "{{ mediawiki_default_branch }}"
-  config: |
-    $wgRelatedArticlesFooterWhitelistedSkins = ['vector','chameleon','foreground','modern','cologneblue','monobook'];
-    $wgRelatedArticlesUseCirrusSearch = true;
-    $wgRelatedArticlesLoggingSamplingRate = 1;
-    $wgRelatedArticlesShowReadMore = true;
-    $wgRelatedArticlesShowInFooter = true;
+#- name: RelatedArticles
+#  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/RelatedArticles.git
+#  version: "{{ mediawiki_default_branch }}"
+#  config: |
+#    $wgRelatedArticlesFooterWhitelistedSkins = ['vector','chameleon','foreground','modern','cologneblue','monobook'];
+#    $wgRelatedArticlesUseCirrusSearch = true;
+#    $wgRelatedArticlesLoggingSamplingRate = 1;
+#    $wgRelatedArticlesShowReadMore = true;
+#    $wgRelatedArticlesShowInFooter = true;
 
 - name: SVGEdit
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/SVGEdit

@@ -79,27 +79,38 @@ $wgRightsIcon = "https://i.creativecommons.org/l/by-sa/4.0/88x31.png";
 // see the DefaultSettings file for the definition of scanners.
 // must install and make the scanner available; e.g. sudo apt-get install clamav etc.
 // by default, this is set to null, turning off all virus scanning.
-$wgAntivirus = 'clamav';
+// We'll use the daemon setup because it's 100x faster
+$wgAntivirus = 'clamavD';
 // turn it off if you need to verify that it's installed
 // $wgAntivirus = NULL;
 
 // Reject uploads if AV_SCAN_FAILED (possibly because the scanner isn't configured correctly)
 // $wgAntivirusRequired = false; // default is true so uploads must pass scanning
 
-//override the setup for clamav because it's currently broken in head
-$wgAntivirusSetup['clamav'] = array (
-  'command' => "/usr/bin/clamscan --no-summary %f",
+$wgAntivirusSetup = array (
+  'clamav' => array (
+    'command' => "/usr/bin/clamscan --no-summary %f",
 
-  'codemap' => array (
-    "0" =>  AV_NO_VIRUS, # no virus
-    "1" =>  AV_VIRUS_FOUND, # virus found
-    "52" => AV_SCAN_ABORTED, # unsupported file format (probably imune)
-    "*" =>  AV_SCAN_FAILED, # else scan failed
+    'codemap' => array (
+      "0" =>  AV_NO_VIRUS, # no virus
+      "1" =>  AV_VIRUS_FOUND, # virus found
+      "52" => AV_SCAN_ABORTED, # unsupported file format (probably imune)
+      "*" =>  AV_SCAN_FAILED, # else scan failed
+    ),
+    'messagepattern' => '/.*?:(.*)/sim',
   ),
+  'clamavD' => array (
+    'command' => "/usr/bin/clamdscan --no-summary --fdpass %f",
 
-  'messagepattern' => '/.*?:(.*)/sim',
+    'codemap' => array (
+      "0" =>  AV_NO_VIRUS, # no virus
+      "1" =>  AV_VIRUS_FOUND, # virus found
+      "52" => AV_SCAN_ABORTED, # unsupported file format (probably imune)
+      "*" =>  AV_SCAN_FAILED, # else scan failed
+    ),
+    'messagepattern' => '/.*?:(.*)/sim',
+  ),
 );
-
 
 // Add in automatic promotion of users
 // Make it so users with confirmed e-mail addresses are in the groups we want enabled by default.
