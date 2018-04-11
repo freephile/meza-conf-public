@@ -16,7 +16,7 @@
  *  - https://www.mediawiki.org/wiki/Manual:$wgSitename
  *  - https://www.mediawiki.org/wiki/Manual:$wgMetaNamespace
  **/
-$wgSitename = 'QualityBox Wiki';
+$wgSitename = 'QualityBox Manual';
 
 /**
  * meza uses an authentication system with a few default types. See LocalSettings.php
