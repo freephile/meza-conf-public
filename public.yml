@@ -5,11 +5,20 @@
 # deploy of the application
 
 # Used for importing wikis
+
+##### THIS DOES NOT WORK ###########
 #backups_src_sql_path: /tmp/<id>
 #backups_src_uploads_path: /tmp/<id>/uploads
 # alt_remote_user: joe
 # backups_src_sql_path: /opt/data-meza/backups/monolith/<id>
 # backups_src_uploads_path: /opt/data-meza/backups/monolith/<id>/uploads
+
+##### THIS DOES ###################
+#backups_server_alt_source:
+#  addr: 10.136.31.55 
+#  remote_user: meza-ansible
+#  uploads_dir_path: /opt/data-meza/uploads/<id>/ 
+#  sql_dir_path: /backups/dump-2018-04-10.my.qualitybox.us-wiki_<id>.01.sql
 
 
 
