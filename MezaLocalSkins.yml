@@ -24,3 +24,26 @@ list:
       'showFooterIcons' => 0,
       'addThisFollowPUBID' => ''
     );
+
+- name: MinervaNeue
+  repo: https://gerrit.wikimedia.org/r/mediawiki/skins/MinervaNeue
+  version: "{{ mediawiki_default_branch }}"
+  config: |
+    // currently MinervaNeue DEPENDS on extension/MobileFrontend
+
+
+
+##- name: Modern
+##  repo: https://gerrit.wikimedia.org/r/p/mediawiki/skins/Modern.git
+##  type: skins
+##  version: "{{ mediawiki_default_branch }}"
+##
+##- name: CologneBlue
+##  repo: https://gerrit.wikimedia.org/r/p/mediawiki/skins/CologneBlue.git
+##  type: skins
+##  version: "{{ mediawiki_default_branch }}"
+##
+##- name: MonoBook
+##  repo: https://gerrit.wikimedia.org/r/p/mediawiki/skins/MonoBook.git
+##  type: skins
+##  version: "{{ mediawiki_default_branch }}"
