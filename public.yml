@@ -12,7 +12,7 @@
 # backups_src_uploads_path: /opt/data-meza/backups/monolith/<id>/uploads
 
 
-
+# visible at :1936
 enable_haproxy_stats: true
 
 
@@ -20,26 +20,26 @@ enable_haproxy_stats: true
 # the REL branch will contain updates
 # The specific version tag will be a single point in time
 # If the tag doesn't exist yet, use a SHA
-mediawiki_version: "REL1_28"
+# mediawiki_version: "REL1_28"
 # mediawiki_version: "1.28.3"
 # mediawiki_version: "5b85506"
 
 # Branch to use on many extensions and skins
-mediawiki_default_branch: "REL1_28"
+# mediawiki_default_branch: "REL1_28"
 #
 # # MediaWiki REL1_28 branch point on 2016-10-25
 # # Parsoid v0.5.3 on Oct 31, 2016
 # # Parsoid v0.6.0 on Nov 7, 2016
-m_parsoid_version: "tags/v0.5.3"
+# m_parsoid_version: "tags/v0.5.3"
 #
 # # MediaWiki 1.27 and earlier require ElasticSearch 1.6
 # # MediaWiki 1.28 and higher require ElasticSearch 2.x
 # # MediaWiki 1.29 and higher require ElasticSearch 5.x
-elasticsearch_major_version: "2.x"
+# elasticsearch_major_version: "2.x"
 #
 
 
-
+m_timezone: "America/New_York"
 
 # backups_src_sql_path: /tmp/<id>
 # backups_src_uploads_path: /tmp/<id>/uploads
