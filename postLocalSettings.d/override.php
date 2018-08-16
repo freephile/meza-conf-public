@@ -2,7 +2,8 @@
 $wgGroupPermissions['*']['viewlinktolatest'] = false;
 $wgGroupPermissions['sysop']['viewlinktolatest'] = true;
 $egApprovedRevsAutomaticApprovals = true; // defaults to false in core meza
-
+// allow sideloading
+$wgGroupPermissions['user']['upload_by_url'] = true;
 
 // add the ability to have subpages in the regular namespace
 $wgNamespacesWithSubpages = array(
@@ -50,4 +51,11 @@ $wgSpamRegex = "/".                        # The "/" is the opening wrapper
                                           # The "\s" matches whitespace
                                           # The "*" is a repeater (zero or more times)
                                           # The "\s*" means to look for 0 or more amount of whitespace
+
+// add feature to automatically use 'logo' file
+// Use this wiki's logo if it has Logo.png or Logo.jpg uploaded
+$logoPNG = "c/c9/Logo.png";
+$logoJPG = "d/d4/Logo.jpg";
+if( file_exists( "$wgUploadDirectory/$logoPNG" ) ) $wgLogo = "$wgUploadPath/$logoPNG";
+elseif( file_exists( "$wgUploadDirectory/$logoJPG" ) ) $wgLogo = "$wgUploadPath/$logoJPG";
 
