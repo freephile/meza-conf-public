@@ -9,6 +9,8 @@ list:
 - name: AntiSpoof
   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiSpoof.git
   version: "{{ mediawiki_default_branch }}"
+  composer_merge: True
+
 # This is either old, or a plugin. Check documentation for CentralAuth
 # - name: AntiSpoofForCentralAuth
 #   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiSpoofForCentralAuth.git
@@ -67,6 +69,7 @@ list:
   version: "{{ mediawiki_default_branch }}"
   config: |
     $wgMFAutodetectMobileView = true;
+    $wgMFDefaultSkinClass = 'SkinMinerva'; 
 - name: MsUpload
   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MsUpload.git
   version: "{{ mediawiki_default_branch }}"
@@ -86,10 +89,11 @@ list:
 #
 # Extensions loaded with legacy require_once method
 #
-- name: AntiBot
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiBot.git
-  version: "{{ mediawiki_default_branch }}"
-  legacy_load: True
+## AntiBot is archived
+#- name: AntiBot
+#  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiBot.git
+#  version: master
+#  legacy_load: True
 - name: CreateRedirect
   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CreateRedirect.git
   version: "{{ mediawiki_default_branch }}"
@@ -143,7 +147,7 @@ list:
   version: "0.3.*"
 - name: DataValuesGeo
   composer: "data-values/geo"
-  version: "1.2.*"
+  version: "~2.0"
 - name: DataValuesInterfaces
   composer: "data-values/interfaces"
   version: "0.2.*"
@@ -281,7 +285,6 @@ list:
 - name: CSS
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CSS.git
   version: "{{ mediawiki_default_branch }}"
-  legacy_load: True
 - name: CategorySuggest
   repo: https://github.com/middlebury/CategorySuggest.git
   version: tags/CategorySuggest-1.8
@@ -327,13 +330,13 @@ list:
 
 - name: EmbedVideo
   repo: https://github.com/HydraWiki/mediawiki-embedvideo.git
-  version: tags/v2.7.0
+  version: master
 # Add to pre-LocalSettings.php
 # $wgNamespacesWithSubpages[NS_MAIN] = true;
-- name: Html2Wiki
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Html2Wiki.git
-  version: master
-  composer_merge: True
+#- name: Html2Wiki
+#  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Html2Wiki.git
+#  version: master
+#  composer_merge: True
 
 - name: PageSchemas
   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/PageSchemas
@@ -373,6 +376,11 @@ list:
   config: |
     $wgScribuntoDefaultEngine = 'luastandalone';
     $wgScribuntoUseGeSHi = true;
+#- name: TogetherJS
+#  repo: // require_once("$IP/extensions/TogetherJS/TogetherJS.php");
+#  version: master
+#  legacy_load: True
+
 - name: UserMerge
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/UserMerge.git
   version: "{{ mediawiki_default_branch }}"
