@@ -6,7 +6,7 @@ list:
   composer: "mediawiki/chameleon-skin"
   version: ~1.0
   config: |
-    $wgDefaultSkin='chameleon';
+#    $wgDefaultSkin='chameleon';
     $egChameleonLayoutFile= "{{m_mediawiki}}/skins/chameleon/layouts/fixedhead.xml";
 
 - name: Foreground
@@ -30,7 +30,7 @@ list:
   version: "{{ mediawiki_default_branch }}"
   config: |
     // currently MinervaNeue DEPENDS on extension/MobileFrontend
-
+    $wgDefaultSkin='minerva';
 
 
 ##- name: Modern
