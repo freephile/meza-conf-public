@@ -263,16 +263,20 @@ list:
   composer: "mediawiki/bootstrap"
   version: ~1.0
   config: |
+    // This will load the Bootstrap modules sitewide
     $wgHooks['SetupAfterCache'][]=function(){
         \Bootstrap\BootstrapManager::getInstance()->addAllBootstrapModules();
         return true;
     };
-
+    // This will load all Bootstrap styles and scripts sitewide
+    // Temporarily turning this off because the 'styles' reduces <body> font-size to 14px instead of 16px
+    /**
     $wgHooks['ParserAfterParse'][]=function( Parser &$parser, &$text, StripState &$stripState ){
         $parser->getOutput()->addModuleStyles( 'ext.bootstrap.styles' );
         $parser->getOutput()->addModuleScripts( 'ext.bootstrap.scripts' );
         return true;
     };
+    */
 
 - name: CSS
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CSS.git
