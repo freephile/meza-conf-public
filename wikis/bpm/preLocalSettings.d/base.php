@@ -16,7 +16,7 @@
  *  - https://www.mediawiki.org/wiki/Manual:$wgSitename
  *  - https://www.mediawiki.org/wiki/Manual:$wgMetaNamespace
  **/
-$wgSitename = 'Freephile Wiki';
+$wgSitename = 'Boston Perl Mongers Wiki';
 
 /**
  * meza uses an authentication system with a few default types. See LocalSettings.php
