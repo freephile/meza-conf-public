@@ -27,7 +27,7 @@ $wgNamespacesWithSubpages = array(
 
 
 // eliminate spam https://www.mediawiki.org/wiki/Manual:$wgSpamRegex
-// may need to adjust 
+// may need to adjust
 // Perl Compatible Regular Expressions backtrack memory limit
 ini_set( 'pcre.backtrack_limit', '2M' );
 $wgSpamRegex = "/".                        # The "/" is the opening wrapper
@@ -46,7 +46,6 @@ $wgSpamRegex = "/".                        # The "/" is the opening wrapper
                 "height\s*:\s*[0-4]px|".  # This matches against height:0px (most CSS hidden spam) (regardless of whitespace on either side of the colon)
                 "==<center>\[|".          # This matches some recent spam related to starsearchtool.com and friends
                 "\<\s*a\s*href|".         # This blocks all href links entirely, forcing wiki syntax
-                "display\s*:\s*none".     # This matches against display:none (regardless of whitespace on either side of the colon)
                 "/i";                     # The "/" ends the regular expression and the "i" switch which follows makes the test case-insensitive
                                           # The "\s" matches whitespace
                                           # The "*" is a repeater (zero or more times)
@@ -58,4 +57,3 @@ $logoPNG = "c/c9/Logo.png";
 $logoJPG = "d/d4/Logo.jpg";
 if( file_exists( "$wgUploadDirectory/$logoPNG" ) ) $wgLogo = "$wgUploadPath/$logoPNG";
 elseif( file_exists( "$wgUploadDirectory/$logoJPG" ) ) $wgLogo = "$wgUploadPath/$logoJPG";
-
