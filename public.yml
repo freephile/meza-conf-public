@@ -58,7 +58,7 @@ m_wiki_url_style: subdomain
 # FIXME #763: List types, and descriptions
 meza_auth_type: "anon-read"
 blenderMode: domain
-blender_landing_page_title: QualityBox Demo Server
+blender_landing_page_title: QualityBox Platform
 # User table of the primary wiki will be used in a multi-wiki setup
 # primary_wiki_id: freephile
 
