@@ -47,3 +47,5 @@ list:
 ##  repo: https://gerrit.wikimedia.org/r/p/mediawiki/skins/MonoBook.git
 ##  type: skins
 ##  version: "{{ mediawiki_default_branch }}"
+- name: Timeless
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/skins/Timeless
