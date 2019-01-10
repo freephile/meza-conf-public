@@ -43,9 +43,8 @@ $wgSpamRegex = "/".                        # The "/" is the opening wrapper
                 "buy-viagra|-cialis|-levitra|boy-and-girl-kissing|". # These match spammy words
                 "dirare\.com|".           # This matches dirare.com a spammer's domain name
                 "overflow\s*:\s*auto|".   # This matches against overflow:auto (regardless of whitespace on either side of the colon)
-                "height\s*:\s*[0-4]px|".  # This matches against height:0px (most CSS hidden spam) (regardless of whitespace on either side of the colon)
-                "==<center>\[|".          # This matches some recent spam related to starsearchtool.com and friends
-                "\<\s*a\s*href|".         # This blocks all href links entirely, forcing wiki syntax
+                "height\s*:\s*0px|".  # This matches against height:0px (most CSS hidden spam) (regardless of whitespace on either side of the colon)
+                "==<center>\[".          # This matches some recent spam related to starsearchtool.com and friends
                 "/i";                     # The "/" ends the regular expression and the "i" switch which follows makes the test case-insensitive
                                           # The "\s" matches whitespace
                                           # The "*" is a repeater (zero or more times)
