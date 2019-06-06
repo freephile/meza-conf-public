@@ -1,4 +1,10 @@
 <?php
+// These are actually the defaults for MW 1.27+ so should be in effect
+// but Megan was reporting getting logged out.
+$wgCookieExpiration = 30 * 86400; 
+$wgExtendedLoginCookieExpiration = 365 * 86400;
+$wgObjectCacheSessionExpiry = 60 * 60 * 24 * 30; // 30-day session
+
 $wgGroupPermissions['*']['viewlinktolatest'] = false;
 $wgGroupPermissions['sysop']['viewlinktolatest'] = true;
 $egApprovedRevsAutomaticApprovals = true; // defaults to false in core meza
@@ -56,3 +62,18 @@ $logoPNG = "c/c9/Logo.png";
 $logoJPG = "d/d4/Logo.jpg";
 if( file_exists( "$wgUploadDirectory/$logoPNG" ) ) $wgLogo = "$wgUploadPath/$logoPNG";
 elseif( file_exists( "$wgUploadDirectory/$logoJPG" ) ) $wgLogo = "$wgUploadPath/$logoJPG";
+
+
+// SVG thumbnailing requires more memory
+// // Maximum amount of virtual memory available to shell processes in KB.
+// // 102400 KB = 100 MB, 307200 KB = 300 MB, etc.
+$wgMaxShellMemory = 512000; //500MB WORKS
+
+// in bytes
+$wgMemoryLimit = 500000000; //Default is 50M. This is 500M
+
+$wgPdfProcessor = '/usr/bin/gs'; 
+$wgPdfPostProcessor = $wgImageMagickConvertCommand; // if defined via ImageMagick
+$wgPdfPostProcessor = '/usr/bin/convert';  // if not defined via ImageMagick
+$wgPdfInfo = '/usr/bin/pdfinfo'; 
+$wgPdftoText = '/usr/bin/pdftotext';
