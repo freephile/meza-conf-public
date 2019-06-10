@@ -94,6 +94,48 @@ list:
 #  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiBot.git
 #  version: master
 #  legacy_load: True
+- name: ConfirmAccount
+  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ConfirmAccount.git
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: True
+  config: |
+    $wgHooks['PersonalUrls'][] = 'onPersonalUrls';
+    
+    function onPersonalUrls( array &$personal_urls, Title $title, SkinTemplate $skin  ) {
+        // Add a link to Special:RequestAccount if a link exists for login
+        if ( isset( $personal_urls['login'] ) || isset( $personal_urls['anonlogin'] ) ) {
+                $personal_urls['createaccount'] = array(
+                    'text' => wfMessage( 'requestaccount' )->text(),
+                    'href' => SpecialPage::getTitleFor( 'RequestAccount' )->getFullURL()
+                );
+        }
+        return true;
+    }
+    
+    // $wgConfirmAccountContact = 'webmaster@example.com'; // any SINGLE email address 
+    // OR, by setting the confirmaccount-notify permission on a group, all members of that group
+    // will receive notifications.  Could be a custom group, 
+    // but in this case we're using the 'Administrators' group (sysop)
+    // NOTE: Admins who do not wish to receive notices can turn off the 'Enable email from other users' 
+    // option in Special:Preferences (but would prevent them from all user messages)
+    $wgGroupPermissions['sysop']['confirmaccount-notify'] = true;
+    
+    $wgMakeUserPageFromBio = true;
+    $wgAutoWelcomeNewUsers = false;
+    $wgConfirmAccountRequestFormItems = array(
+        'UserName'        => array( 'enabled' => true ),
+        'RealName'        => array( 'enabled' => true ),
+        'Biography'       => array( 'enabled' => true, 'minWords' => 20 ),
+        'AreasOfInterest' => array( 'enabled' => true ),
+        'CV'              => array( 'enabled' => true ),
+        'Notes'           => array( 'enabled' => true ),
+        'Links'           => array( 'enabled' => true ),
+        'TermsOfService'  => array( 'enabled' => true ),
+     );
+    // the default is 6 words for Bio. 
+    // You can ovveride settings indivually like so
+    // $wgConfirmAccountRequestFormItems['Biography']['minWords'] = 10;  
+
 - name: CreateRedirect
   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CreateRedirect.git
   version: "{{ mediawiki_default_branch }}"
