@@ -5,6 +5,8 @@ $wgCookieExpiration = 30 * 86400;
 $wgExtendedLoginCookieExpiration = 365 * 86400;
 $wgObjectCacheSessionExpiry = 60 * 60 * 24 * 30; // 30-day session
 
+$wgUploadNavigationUrl = "$wgScriptPath/index.php/Special:Upload";
+
 $wgGroupPermissions['*']['viewlinktolatest'] = false;
 $wgGroupPermissions['sysop']['viewlinktolatest'] = true;
 $egApprovedRevsAutomaticApprovals = true; // defaults to false in core meza

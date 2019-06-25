@@ -4,19 +4,19 @@ list:
 # Extensions loaded with wfLoadExtension()
 #
 - name: AJAXPoll
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AJAXPoll.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/AJAXPoll.git
   version: "{{ mediawiki_default_branch }}"
 - name: AntiSpoof
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiSpoof.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/AntiSpoof.git
   version: "{{ mediawiki_default_branch }}"
   composer_merge: True
 
 # This is either old, or a plugin. Check documentation for CentralAuth
 # - name: AntiSpoofForCentralAuth
-#   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiSpoofForCentralAuth.git
+#   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/AntiSpoofForCentralAuth.git
 #   version: "{{ mediawiki_default_branch }}"
 - name: CategoryTree
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CategoryTree.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CategoryTree.git
   # CategoryTree didn't convert to extension registration until 1_28
   version: "{{ mediawiki_default_branch }}"
   config: |
@@ -52,26 +52,26 @@ list:
     $wgCategoryTreeSidebarOptions = array();
 
 # - name: CentralAuth
-#   repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CentralAuth.git
+#   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CentralAuth.git
 #   version: "{{ mediawiki_default_branch }}"
 
 - name: CheckUser
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CheckUser.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CheckUser.git
   version: "{{ mediawiki_default_branch }}"
 - name: ConfirmEdit
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ConfirmEdit.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/ConfirmEdit.git
   version: "{{ mediawiki_default_branch }}"
 - name: Gadgets
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Gadgets.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Gadgets.git
   version: "{{ mediawiki_default_branch }}"
 - name: MobileFrontend
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MobileFrontend.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/MobileFrontend.git
   version: "{{ mediawiki_default_branch }}"
   config: |
     $wgMFAutodetectMobileView = true;
     $wgMFDefaultSkinClass = 'SkinMinerva'; 
 - name: MsUpload
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MsUpload.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/MsUpload.git
   version: "{{ mediawiki_default_branch }}"
   config: |
     $wgMSU_showAutoCat = true; // If true, files uploaded while editing a category will be added to that category
@@ -80,10 +80,10 @@ list:
     $wgMSU_useDragDrop = true; // Should the drag & drop area be shown?
     $wgMSU_useMsLinks = false; // Should we allow to insert links in the style of the Extension:MsLinks?
 - name: Nuke
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Nuke.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Nuke.git
   version: "{{ mediawiki_default_branch }}"
 - name: Renameuser
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Renameuser.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Renameuser.git
   version: "{{ mediawiki_default_branch }}"
 
 #
@@ -91,45 +91,45 @@ list:
 #
 ## AntiBot is archived
 #- name: AntiBot
-#  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AntiBot.git
+#  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/AntiBot.git
 #  version: master
 #  legacy_load: True
 - name: CreateRedirect
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CreateRedirect.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CreateRedirect.git
   version: "{{ mediawiki_default_branch }}"
   legacy_load: True
 # possible widget? or just don't do it? or download the code manually
 # - name: FollowButton
 #   https://www.mediawiki.org/wiki/Extension:FollowButton
 - name: Loops
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Loops.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Loops.git
   version: "{{ mediawiki_default_branch }}"
   legacy_load: True
   config: |
     ExtLoops::$maxLoops = 5000;
 - name: MagicNoCache
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MagicNoCache.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/MagicNoCache.git
   version: "{{ mediawiki_default_branch }}"
   legacy_load: True
 - name: MyVariables
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MyVariables.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/MyVariables.git
   version: "{{ mediawiki_default_branch }}"
   legacy_load: True
 # unmaintained. May be problematic
 - name: NoTitle
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/NoTitle.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/NoTitle.git
   version: "{{ mediawiki_default_branch }}"
   legacy_load: True
 - name: OpenGraphMeta
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OpenGraphMeta.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/OpenGraphMeta.git
   version: "{{ mediawiki_default_branch }}"
   legacy_load: True
 #- name: SimpleFarm
-#  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SimpleFarm
+#  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/SimpleFarm
 #  version: "{{ mediawiki_default_branch }}"
 #  legacy_load: True
 - name: Widgets
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Widgets.git
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets.git
   version: "{{ mediawiki_default_branch }}"
   legacy_load: True
   # this module requires a git submodule update --init; thus the next line
@@ -290,7 +290,7 @@ list:
   version: tags/CategorySuggest-1.8
   legacy_load: True
 - name: WikiCategoryTagCloud
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiCategoryTagCloud
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiCategoryTagCloud
   version: "{{ mediawiki_default_branch }}"
 - name: CiteThisPage
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CiteThisPage.git
@@ -338,8 +338,20 @@ list:
 #  version: master
 #  composer_merge: True
 
+- name: Lingo
+  # repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Lingo.git
+  # version: "{{ mediawiki_default_branch }}"
+  composer: "mediawiki/lingo"
+  version: "~3.0" 
+  config: |
+    // installed by composer, we have to manually load it
+    wfLoadExtension( "Lingo" );
+    // avoid funkiness in MobileFrontend
+    $wgMFRemovableClasses = [ 'base' => [ '.mw-lingo-tooltip' ] ];
+
+
 - name: PageSchemas
-  repo: https://gerrit.wikimedia.org/r/p/mediawiki/extensions/PageSchemas
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/PageSchemas
   version: master
   legacy_load: True
   config: |
