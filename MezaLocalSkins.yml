@@ -49,3 +49,6 @@ list:
 ##  version: "{{ mediawiki_default_branch }}"
 - name: Timeless
   repo: https://gerrit.wikimedia.org/r/mediawiki/skins/Timeless
+  version: "{{ mediawiki_default_branch }}"
+  config: |
+    wfLoadSkin( "Timeless" );
