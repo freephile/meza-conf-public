@@ -189,7 +189,7 @@ list:
   version: "0.3.*"
 - name: DataValuesGeo
   composer: "data-values/geo"
-  version: "~2.0"
+  version: "~3.0"
 - name: DataValuesInterfaces
   composer: "data-values/interfaces"
   version: "0.2.*"
