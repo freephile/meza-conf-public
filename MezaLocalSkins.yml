@@ -4,11 +4,10 @@ list:
 
 - name: Chameleon
   composer: "mediawiki/chameleon-skin"
-  version: ~1.0
+  version: ~2.0
   config: |
-    $wgDefaultSkin='chameleon';
+    // $wgDefaultSkin='chameleon';
     $egChameleonLayoutFile= "{{m_mediawiki}}/skins/chameleon/layouts/fixedhead.xml";
-
 - name: Foreground
   repo: https://github.com/thingles/foreground.git
   version: tags/v1.2.0
@@ -24,15 +23,11 @@ list:
       'showFooterIcons' => 0,
       'addThisFollowPUBID' => ''
     );
-
 - name: MinervaNeue
   repo: https://gerrit.wikimedia.org/r/mediawiki/skins/MinervaNeue
   version: "{{ mediawiki_default_branch }}"
   config: |
     // currently MinervaNeue DEPENDS on extension/MobileFrontend
-
-
-
 ##- name: Modern
 ##  repo: https://gerrit.wikimedia.org/r/mediawiki/skins/Modern.git
 ##  type: skins
@@ -52,3 +47,4 @@ list:
   version: "{{ mediawiki_default_branch }}"
   config: |
     wfLoadSkin( "Timeless" );
+

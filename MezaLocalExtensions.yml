@@ -1,20 +1,15 @@
 ---
-list:
-#
-# Extensions loaded with wfLoadExtension()
-#
+list: 
+
 - name: AJAXPoll
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/AJAXPoll.git
   version: "{{ mediawiki_default_branch }}"
+
 - name: AntiSpoof
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/AntiSpoof.git
   version: "{{ mediawiki_default_branch }}"
   composer_merge: True
 
-# This is either old, or a plugin. Check documentation for CentralAuth
-# - name: AntiSpoofForCentralAuth
-#   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/AntiSpoofForCentralAuth.git
-#   version: "{{ mediawiki_default_branch }}"
 - name: CategoryTree
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CategoryTree.git
   # CategoryTree didn't convert to extension registration until 1_28
@@ -51,10 +46,6 @@ list:
     //    options to use when showing the tree in the sidebar, as an array (since rev:36920, July 2008).
     $wgCategoryTreeSidebarOptions = array();
 
-# - name: CentralAuth
-#   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CentralAuth.git
-#   version: "{{ mediawiki_default_branch }}"
-
 - name: CheckUser
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CheckUser.git
   version: "{{ mediawiki_default_branch }}"
@@ -86,14 +77,6 @@ list:
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Renameuser.git
   version: "{{ mediawiki_default_branch }}"
 
-#
-# Extensions loaded with legacy require_once method
-#
-## AntiBot is archived
-#- name: AntiBot
-#  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/AntiBot.git
-#  version: master
-#  legacy_load: True
 - name: ConfirmAccount
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/ConfirmAccount.git
   version: "{{ mediawiki_default_branch }}"
@@ -177,6 +160,48 @@ list:
   # this module requires a git submodule update --init; thus the next line
   git_submodules: True
 
+- name: BetaFeatures
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/BetaFeatures
+  version: "{{ mediawiki_default_branch }}"
+- name: CSS
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CSS.git
+  version: "{{ mediawiki_default_branch }}"
+- name: CategorySuggest
+  repo: https://github.com/middlebury/CategorySuggest.git
+  version: tags/CategorySuggest-1.8
+  legacy_load: True
+- name: WikiCategoryTagCloud
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiCategoryTagCloud
+  version: "{{ mediawiki_default_branch }}"
+- name: CiteThisPage
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CiteThisPage.git
+  version: "{{ mediawiki_default_branch }}"
+
+- name: EmbedVideo
+  repo: https://github.com/HydraWiki/mediawiki-embedvideo.git
+  version: master
+# Add to pre-LocalSettings.php
+# $wgNamespacesWithSubpages[NS_MAIN] = true;
+#- name: Html2Wiki
+#  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Html2Wiki.git
+#  version: master
+#  composer_merge: True
+
+- name: PageSchemas
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/PageSchemas
+  version: master
+  legacy_load: True
+  config: |
+    // $wgGroupPermissions['sysop']['generatepages'] = true; // default
+- name: PdfHandler
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/PdfHandler
+  version: "{{ mediawiki_default_branch }}"
+
+- name: Poem
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Poem
+  version: "{{ mediawiki_default_branch }}"
+
+
 #
 # libraries loaded by composer
 #
@@ -202,208 +227,6 @@ list:
 - name: ParserHooks
   composer: mediawiki/parser-hooks
   version: "~1.5"
-- name: WikiSEO
-  # repo: https://github.com/tinymighty/wiki-seo.git WikiSEO
-  composer: tinymighty/wiki-seo
-  version: "~1.2"
-
-
-### Added for freephile
-
-## This content was produced with
-## php /opt/meza/src/scripts/importExtensions.php https://freephile.org/w/api.php
-
-# Here are the extensions in core
-# AdminLinks
-# ApprovedRevs
-# Arrays
-# BatchUserRights
-# CharInsert
-# CirrusSearch
-# Cite
-# CollapsibleVector
-# ContributionScores
-# CopyWatchers
-# DataTransfer
-# DismissableSiteNotice
-# DisplayTitle
-# Echo
-# Elastica
-# ExternalData
-# HeaderFooter
-# HeaderTabs
-# ImageMap
-# ImagesLoaded
-# InputBox
-# Interwiki
-# LabeledSectionTransclusion
-# Maps
-# MasonryMainPage
-# NumerAlpha
-# PageForms
-# PageImporter
-# ParserFunctionHelper
-# ParserFunctions
-# PipeEscape
-# ReplaceText
-# SemanticCompoundQueries
-# SemanticDrilldown
-# SemanticInternalObjects
-# Semantic
-# SemanticMeetingMinutes
-# Semantic
-# SimpleMathJax
-# StringFunctionsEscaped
-# SubPageList
-# SyntaxHighlight_GeSHi
-# TalkRight
-# Thanks
-# UniversalLanguageSelector
-# UploadWizard
-# Variables
-# VisualEditor
-# WatchAnalytics
-# WhoIsWatching
-# WikiEditor
-# Wiretap
-# YouTube
-
-#  Here are additional extensions from MezaLocalExtensions.yml
-# AJAXPoll
-# AntiBot
-# AntiSpoof
-# AntiSpoofForCentralAuth
-# CategoryTree
-# CentralAuth
-# CheckUser
-# ConfirmEdit
-# CreateRedirect
-# DataValues
-# DataValuesCommon
-# DataValuesGeo
-# DataValuesInterfaces
-# DataValuesTime
-# DataValuesValidators
-# FollowButton
-# Gadgets
-# Loops
-# MagicNoCache
-# MobileFrontend
-# MsUpload
-# MyVariables
-# NoTitle
-# Nuke
-# OpenGraphMeta
-# ParserHooks
-# Renameuser
-# Widgets
-# WikiSEO
-
-- name: BetaFeatures
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/BetaFeatures
-  version: "{{ mediawiki_default_branch }}"
-
-# Bootstrap is installed by composer
-# extra rules that I didn't have before, but enable all Bootstrap features
-- name: Bootstrap
-  composer: "mediawiki/bootstrap"
-  version: ~1.0
-  config: |
-    // This will load the Bootstrap modules sitewide
-    $wgHooks['SetupAfterCache'][]=function(){
-        \Bootstrap\BootstrapManager::getInstance()->addAllBootstrapModules();
-        return true;
-    };
-    // This will load all Bootstrap styles and scripts sitewide
-    // Temporarily turning this off because the 'styles' reduces <body> font-size to 14px instead of 16px
-    /**
-    $wgHooks['ParserAfterParse'][]=function( Parser &$parser, &$text, StripState &$stripState ){
-        $parser->getOutput()->addModuleStyles( 'ext.bootstrap.styles' );
-        $parser->getOutput()->addModuleScripts( 'ext.bootstrap.scripts' );
-        return true;
-    };
-    */
-
-- name: CSS
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CSS.git
-  version: "{{ mediawiki_default_branch }}"
-- name: CategorySuggest
-  repo: https://github.com/middlebury/CategorySuggest.git
-  version: tags/CategorySuggest-1.8
-  legacy_load: True
-- name: WikiCategoryTagCloud
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiCategoryTagCloud
-  version: "{{ mediawiki_default_branch }}"
-- name: CiteThisPage
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CiteThisPage.git
-  version: "{{ mediawiki_default_branch }}"
-# The Collection extension should work in an SSL environment, with External
-# render service.  @FIXME review the status and setup
-- name: Collection
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Collection.git
-  version: "{{ mediawiki_default_branch }}"
-  legacy_load: True
-  config: |
-    // New configuration of Collection
-    // $wgCollectionPODPartners = false; # to disable print on demand
-    $wgCollectionPODPartners = array(
-        'pediapress' => array(
-            'name' => 'PediaPress',
-            'url' => 'https://pediapress.com/',
-            'posturl' => 'https://pediapress.com/api/collections/',
-            'infopagetitle' => 'coll-order_info_article',
-        ),
-    );
-
-    $wgCollectionMWServeURL = "http://tools.pediapress.com/mw-serve/";
-
-    // mw-render --list-writers will show what's availabe locally
-    $wgCollectionFormats = array(
-        'rl' => 'PDF', # enabled by default
-        'odf' => 'ODT',
-    //    'docbook' => 'DocBook XML',
-        'xhtml' => 'XHTML 1.0 Transitional',
-        'epub' => 'e-book (EPUB)',
-        'zim' => 'Kiwix (OpenZIM)',
-    );
-    // add in permissions for saving collections
-    $wgGroupPermissions['user']['collectionsaveasuserpage'] = true;
-    $wgGroupPermissions['sysop']['collectionsaveascommunitypage'] = true;
-
-- name: EmbedVideo
-  repo: https://github.com/HydraWiki/mediawiki-embedvideo.git
-  version: master
-# Add to pre-LocalSettings.php
-# $wgNamespacesWithSubpages[NS_MAIN] = true;
-#- name: Html2Wiki
-#  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Html2Wiki.git
-#  version: master
-#  composer_merge: True
-
-- name: PageSchemas
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/PageSchemas
-  version: master
-  legacy_load: True
-  config: |
-    // $wgGroupPermissions['sysop']['generatepages'] = true; // default
-
-- name: PdfHandler
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/PdfHandler
-  version: "{{ mediawiki_default_branch }}"
-
-- name: Poem
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Poem
-  version: "{{ mediawiki_default_branch }}"
-
-#- name: RelatedArticles
-#  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/RelatedArticles.git
-#  version: "{{ mediawiki_default_branch }}"
-#  config: |
-#    $wgRelatedArticlesFooterWhitelistedSkins = ['vector','chameleon','foreground','modern','cologneblue','monobook'];
-#    $wgRelatedArticlesUseCirrusSearch = true;
-#    $wgRelatedArticlesLoggingSamplingRate = 1;
-#    $wgRelatedArticlesShowReadMore = true;
-#    $wgRelatedArticlesShowInFooter = true;
 
 - name: SVGEdit
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/SVGEdit
@@ -429,15 +252,9 @@ list:
   config: |
     // By default nobody can use this function, enable for bureaucrat?
     $wgGroupPermissions['bureaucrat']['usermerge'] = true;
-- name: WebChat
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/WebChat
+
+- name: SyntaxHighlight_GeSHi
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/SyntaxHighlight_GeSHi
   version: "{{ mediawiki_default_branch }}"
-  legacy_load: True
-  config: |
-    // IRC Server to connect to, not required when using the freenodeChat web client.
-    $wgWebChatServer  = '';
-    // Channel to connect to.
-    $wgWebChatChannel = '#qualitybox';
-    // Which web chat client to use, 'freenodeChat' is required when connecting to freenode,
-    // but 'Mibbit' can be used for other networks.
-    $wgWebChatClient = 'freenodeChat';
+
+
