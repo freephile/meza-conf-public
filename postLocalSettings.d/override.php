@@ -59,3 +59,29 @@ $logoJPG = "d/d4/Logo.jpg";
 if( file_exists( "$wgUploadDirectory/$logoPNG" ) ) $wgLogo = "$wgUploadPath/$logoPNG";
 elseif( file_exists( "$wgUploadDirectory/$logoJPG" ) ) $wgLogo = "$wgUploadPath/$logoJPG";
 
+
+# antivirus
+$wgAntivirusSetup = array(
+    'clamav' => array (
+        'command' => "/usr/bin/clamscan --no-summary %f",
+        'codemap' => array (
+            "2"   =>  AV_NO_VIRUS,     #no virus
+            "1"   =>  AV_VIRUS_FOUND,  #virus found
+            "52"  =>  AV_SCAN_ABORTED, #unsupported file format (probably immune)
+            "*"   =>  AV_SCAN_FAILED,  #else scan failed
+        ),
+        'messagepattern' => '/.*?:(.*)/sim',
+    ),
+    'clamavD' => array (
+        'command' => "/usr/bin/clamdscan --no-summary --fdpass %f",
+        'codemap' => array (
+            "2"   =>  AV_NO_VIRUS,     #no virus
+            "1"   =>  AV_VIRUS_FOUND,  #virus found
+            "52"  =>  AV_SCAN_ABORTED, #unsupported file format (probably immune)
+            "*"   =>  AV_SCAN_FAILED,  #else scan failed
+        ),
+        'messagepattern' => '/.*?:(.*)/sim',
+    ),
+);
+$wgAntivirus = "clamavD";
+$wgAntivirusRequired = "false";
