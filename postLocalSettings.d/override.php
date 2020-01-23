@@ -91,3 +91,48 @@ $wgRightsUrl = 'https://creativecommons.org/licenses/by-sa/4.0/';
 $wgRightsText = "Creative Commons Attribution Share Alike";
 $wgRightsIcon = "/w/resources/assets/licenses/cc-by-sa.png";
 
+
+
+//////////////////Begin Google Analytics //////////////////////////////////////
+
+$wgGoogleAnalyticsAccount = "UA-39339059-9";
+
+$wgHooks['SkinAfterBottomScripts'][] = 'lfGAScript';
+function lfGAScript( $sk, &$text='' ) {
+    global $wgGoogleAnalyticsAccount;
+    if ( $sk->getUser()->isAllowed('noanalytics') || !lfIsTitleSafe( $sk->getTitle() ) ) {
+        $text .= "<!-- Google Analytics code omitted -->\n";
+        return true;
+    }
+    $text .= <<<GASCRIPT
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=$wgGoogleAnalyticsAccount"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '$wgGoogleAnalyticsAccount');
+</script>
+GASCRIPT;
+    return true;
+}
+ //  Add some paranoia.  Don't put 3rd party scripts (GA tracker) on password pages
+function lfIsTitleSafe( $title ) {
+    if ( $title->isSpecial('Userlogin')
+      || $title->isSpecial('Userlogout')
+      || $title->isSpecial('Preferences')
+      || $title->isSpecial('Resetpass') ) {
+        return false;
+    }
+    return true;
+}
+
+// Permissions that control whether or not to output Google Analytics code
+$wgGroupPermissions['*']['noanalytics'] = false;
+$wgGroupPermissions['bot']['noanalytics'] = true;
+$wgGroupPermissions['sysop']['noanalytics'] = true;
+$wgGroupPermissions['bureaucrat']['noanalytics'] = true;
+
+//////////////////// End Google Analytics //////////////////////////////////////
+
