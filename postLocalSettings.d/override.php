@@ -85,3 +85,9 @@ $wgAntivirusSetup = array(
 );
 $wgAntivirus = "clamavD";
 $wgAntivirusRequired = "false";
+
+// Add CC logo in footer
+$wgRightsUrl = 'https://creativecommons.org/licenses/by-sa/4.0/';
+$wgRightsText = "Creative Commons Attribution Share Alike";
+$wgRightsIcon = "/w/resources/assets/licenses/cc-by-sa.png";
+
