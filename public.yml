@@ -31,6 +31,7 @@ m_timezone: "America/New_York"
 # FIXME #763: List types, and descriptions
 # meza_auth_type: "viewer-read"
 meza_auth_type: "anon-read"
+m_robots_rules: "crawl"
 
 blender_landing_page_title: QualityBox Knowledge Platform
 
