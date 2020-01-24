@@ -12,14 +12,17 @@ m_force_debug: false
 
 # visible at :1936
 enable_haproxy_stats: true
+
+# We don't want deploys to wipe out customizations to /etc/mysql/my.cnf
+overwrite_global_mycnf: false
 # turn off reverse DNS in MySQL
 mysql_skip_name_resolve: true
 # default 151
 mysql_max_connections: 151
 # 80% of RAM or 110% of DB size whichever is less
-mysql_innodb_buffer_pool_size: 2G
+mysql_innodb_buffer_pool_size: 1800M 
 # 25% of buffer_pool but not to exceed 2G total (two logs)
-mysql_innodb_log_file_size: 500M
+mysql_innodb_log_file_size: 225M
 # default 256 in Meza, we use 1976; new MariaDB default is 2000
 mysql_table_open_cache: 2000
 
