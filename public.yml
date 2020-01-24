@@ -15,6 +15,8 @@
 # visible at :1936
 enable_haproxy_stats: true
 
+# We don't want deploys to wipe out customizations to /etc/mysql/my.cnf
+overwrite_global_mycnf: false
 
 # Ensure that our config versions are correct
 # the REL branch will contain updates
