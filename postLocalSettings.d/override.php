@@ -79,3 +79,6 @@ $wgPdfPostProcessor = $wgImageMagickConvertCommand; // if defined via ImageMagic
 $wgPdfPostProcessor = '/usr/bin/convert';  // if not defined via ImageMagick
 $wgPdfInfo = '/usr/bin/pdfinfo'; 
 $wgPdftoText = '/usr/bin/pdftotext';
+// avoid problems with uploading XLSX files
+$wgVerifyMimeType = false;
+
