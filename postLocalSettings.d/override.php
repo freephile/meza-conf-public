@@ -45,8 +45,6 @@ $wgSpamRegex = "/".                        # The "/" is the opening wrapper
                 "overflow\s*:\s*auto|".   # This matches against overflow:auto (regardless of whitespace on either side of the colon)
                 "height\s*:\s*[0-4]px|".  # This matches against height:0px (most CSS hidden spam) (regardless of whitespace on either side of the colon)
                 "==<center>\[|".          # This matches some recent spam related to starsearchtool.com and friends
-                "\<\s*a\s*href|".         # This blocks all href links entirely, forcing wiki syntax
-                "display\s*:\s*none".     # This matches against display:none (regardless of whitespace on either side of the colon)
                 "/i";                     # The "/" ends the regular expression and the "i" switch which follows makes the test case-insensitive
                                           # The "\s" matches whitespace
                                           # The "*" is a repeater (zero or more times)
@@ -59,3 +57,20 @@ $logoJPG = "d/d4/Logo.jpg";
 if( file_exists( "$wgUploadDirectory/$logoPNG" ) ) $wgLogo = "$wgUploadPath/$logoPNG";
 elseif( file_exists( "$wgUploadDirectory/$logoJPG" ) ) $wgLogo = "$wgUploadPath/$logoJPG";
 
+////////////////////////// Powered By feature ///////////////////////////////// 
+// remove default icons 
+unset ($wgFooterIcons['poweredby']); 
+// set QB powered by 
+$wgFooterIcons['poweredby']['qb'] = [ 
+        "src" => "https://wiki.freephile.org/w/img_auth.php/3/3a/Powered.by.qb.png", 
+    // you may also use a direct path to the source, e.g. "http://example.com/my/custom/path/to/MyCustomLogo.png" 
+        "url" => "https://qualitybox.us/", 
+        "alt" => "Powered by QualityBox", 
+/*      // For HiDPI support, you can specify paths to larger versions of the icon. 
+        "srcset" => 
+                "/path/to/1.5x_version.png 1.5x, " . 
+                "/path/to/2x_version.png 2x", 
+ */     // If you have a non-default sized icon you can specify the size yourself. 
+        "height" => "28", 
+        "width" => "88", 
+];
