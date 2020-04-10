@@ -62,7 +62,7 @@ elseif( file_exists( "$wgUploadDirectory/$logoJPG" ) ) $wgLogo = "$wgUploadPath/
 unset ($wgFooterIcons['poweredby']); 
 // set QB powered by 
 $wgFooterIcons['poweredby']['qb'] = [ 
-        "src" => "https://wiki.freephile.org/w/img_auth.php/3/3a/Powered.by.qb.png", 
+        "src" => "https://wiki.freephile.org/wiki/img_auth.php/3/3a/Powered.by.qb.png", 
     // you may also use a direct path to the source, e.g. "http://example.com/my/custom/path/to/MyCustomLogo.png" 
         "url" => "https://qualitybox.us/", 
         "alt" => "Powered by QualityBox", 
