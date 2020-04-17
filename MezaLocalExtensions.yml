@@ -309,7 +309,7 @@ list:
   version: "{{ mediawiki_default_branch }}"
 - name: CategorySuggest
   repo: https://github.com/middlebury/CategorySuggest.git
-  version: tags/CategorySuggest-1.8
+  version: master
   legacy_load: True
 - name: WikiCategoryTagCloud
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiCategoryTagCloud
