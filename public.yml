@@ -15,6 +15,7 @@
 # visible at :1936
 enable_haproxy_stats: true
 
+m_robots_rules: crawl
 
 # Ensure that our config versions are correct
 # the REL branch will contain updates
@@ -68,6 +69,9 @@ blender_landing_page_title: QualityBox Wikis
 #   https://www.mediawiki.org/wiki/Manual:$wgEmergencyContact
 wgPasswordSender: "admin@eQuality-Tech.com"
 # wgEmergencyContact = "another.email@example.com" # defaults to wgPassword Sender
+
+# email used for Apache and Certbot
+m_httpd_server_admin: admin@equality-tech.com
 
 # blender_header_wiki_title: Top row wikis
 
