@@ -380,6 +380,13 @@ list:
 #  version: master
 #  composer_merge: True
 
+- name: Mermaid
+  composer: "mediawiki/mermaid"
+  version: ~2.1
+  config: |
+    wfLoadExtension( 'Mermaid' );
+    $mermaidgDefaultTheme = 'neutral';
+
 - name: PageSchemas
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/PageSchemas
   version: master
