@@ -14,7 +14,7 @@
 
 # visible at :1936
 enable_haproxy_stats: true
-
+overwrite_global_mycnf: false
 
 # Ensure that our config versions are correct
 # the REL branch will contain updates
