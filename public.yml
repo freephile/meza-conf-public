@@ -11,6 +11,8 @@
 # backups_src_sql_path: /opt/data-meza/backups/monolith/<id>
 # backups_src_uploads_path: /opt/data-meza/backups/monolith/<id>/uploads
 
+m_httpd_server_admin: admin@equality-tech.com
+
 
 # visible at :1936
 enable_haproxy_stats: true
