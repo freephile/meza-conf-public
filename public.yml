@@ -13,6 +13,7 @@
 
 m_httpd_server_admin: admin@equality-tech.com
 
+enable_certbot: true
 
 # visible at :1936
 enable_haproxy_stats: true
