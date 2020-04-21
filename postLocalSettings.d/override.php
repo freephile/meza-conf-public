@@ -2,7 +2,11 @@
 $wgGroupPermissions['*']['viewlinktolatest'] = false;
 $wgGroupPermissions['sysop']['viewlinktolatest'] = true;
 $egApprovedRevsAutomaticApprovals = true; // defaults to false in core meza
+
+
 // allow sideloading
+$wgAllowCopyUploads = true;
+$wgCopyUploadsFromSpecialUpload = true;
 $wgGroupPermissions['user']['upload_by_url'] = true;
 
 // add the ability to have subpages in the regular namespace
