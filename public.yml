@@ -13,6 +13,10 @@ m_force_debug: false
 # visible at :1936
 enable_haproxy_stats: true
 
+# email used for Apache and Certbot
+m_httpd_server_admin: admin@equality-tech.com
+enable_certbot: true
+
 # We don't want deploys to wipe out customizations to /etc/mysql/my.cnf
 overwrite_global_mycnf: false
 # turn off reverse DNS in MySQL
