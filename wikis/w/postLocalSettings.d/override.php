@@ -18,7 +18,7 @@ $wgNamespacesWithSubpages[NS_MAIN] = true;
 
 $wgEmailAuthentication = true;
 
-$wgUseInstantCommons = true;
+$wgUseInstantCommons = false;
 
 // Enable by default for everybody
 $wgDefaultUserOptions['visualeditor-enable'] = 1;
