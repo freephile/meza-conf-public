@@ -8,6 +8,11 @@
 # or for development servers.
 m_use_production_settings: True
 
+# setting on whether to use subdomains or paths
+# path mode is the default
+# m_use_subdomains defaults to false
+m_use_subdomains: False
+
 m_force_debug: false
 
 # visible at :1936
