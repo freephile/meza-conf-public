@@ -11,9 +11,13 @@
 # backups_src_sql_path: /opt/data-meza/backups/monolith/<id>
 # backups_src_uploads_path: /opt/data-meza/backups/monolith/<id>/uploads
 
-
 # visible at :1936
 enable_haproxy_stats: true
+
+m_use_production_settings: True
+# default (False) will fail on local mediawiki extension modifcations
+# # Overriding can be useful for live development environments
+m_ignore_local_mods: True
 
 m_robots_rules: crawl
 
@@ -21,24 +25,17 @@ m_robots_rules: crawl
 # the REL branch will contain updates
 # The specific version tag will be a single point in time
 # If the tag doesn't exist yet, use a SHA
-# mediawiki_version: "REL1_28"
+mediawiki_version: "REL1_34"
 # mediawiki_version: "1.28.3"
 # mediawiki_version: "5b85506"
 
 # Branch to use on many extensions and skins
-# mediawiki_default_branch: "REL1_28"
+mediawiki_default_branch: "REL1_34"
 #
-# # MediaWiki REL1_28 branch point on 2016-10-25
-# # Parsoid v0.5.3 on Oct 31, 2016
-# # Parsoid v0.6.0 on Nov 7, 2016
 # m_parsoid_version: "tags/v0.5.3"
 #
-# # MediaWiki 1.27 and earlier require ElasticSearch 1.6
-# # MediaWiki 1.28 and higher require ElasticSearch 2.x
-# # MediaWiki 1.29 and higher require ElasticSearch 5.x
-# elasticsearch_major_version: "2.x"
+elasticsearch_major_version: "6.x"
 #
-
 
 m_timezone: "America/New_York"
 
@@ -74,29 +71,19 @@ wgPasswordSender: "admin@eQuality-Tech.com"
 m_httpd_server_admin: admin@equality-tech.com
 
 # blender_header_wiki_title: Top row wikis
-
 # blender_header_wikis:
 #   - wiki_id_1
 #   - wiki_id_2
-
 # blender_middle_wiki_title: Middle row wikis
-
 # blender_footer_wiki_title: Bottom row wikis
-
 # blender_footer_wikis:
 #   - wiki_id_z
 #   - wiki_id_y
-
-
 
 blender_footer_links:
   - <a href='https://eQuality-Tech.com'>eQuality Technology</a>
   - <a href='https://QualityBox.us'>Quality Box</a>
 
-
-
 blender_admins:
   - name: Greg
     email: Greg@eQuality-Tech.com
-#   - name: Beth
-#     email: beth@example.com
