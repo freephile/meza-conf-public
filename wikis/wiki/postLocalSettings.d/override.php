@@ -84,7 +84,7 @@ $GLOBALS['egMapsDefaultService'] = 'googlemaps3';
 }
 */
 // each site needs their own key
-$GLOBALS['egMapsGMaps3ApiKey'] = 'AIzaSyBymi4PxTDOEEwIbsVX2xd1mDyoPV2IozY';
+$GLOBALS['egMapsGMaps3ApiKey'] = 'AIzaSyBN28fehThC6zeKZPtmdw5LRYIUyRirKEk';
 
 $wgUseInstantCommons = true;
 
