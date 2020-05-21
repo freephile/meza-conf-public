@@ -102,6 +102,14 @@ list:
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/EventLogging
   version: "{{ mediawiki_default_branch }}"
 
+- name: Popups 
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups
+  version: "{{ mediawiki_default_branch }}"
+  config: |
+    $wgPopupsHideOptInOnPreferencesPage = true;
+    $wgPopupsOptInDefaultState = '1';
+    $wgPopupsReferencePreviewsBetaFeature = false;
+
 - name: CodeMirror 
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeMirror
   version: "master"
