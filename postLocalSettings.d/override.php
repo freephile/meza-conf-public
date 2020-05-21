@@ -25,6 +25,11 @@ $wgNamespacesWithSubpages = array(
     NS_CATEGORY_TALK  => true, // Default
 );
 
+// These are actually the defaults for MW 1.27+ so should be in effect
+// Make sure the same is setup in php.ini
+$wgCookieExpiration = 30 * 86400;
+$wgExtendedLoginCookieExpiration = 365 * 86400;
+$wgObjectCacheSessionExpiry = 60 * 60 * 24 * 30; // 30-day session
 
 ini_set( 'pcre.backtrack_limit', '2M' );
 $wgSpamRegex = "";
