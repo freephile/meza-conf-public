@@ -2,6 +2,9 @@
 $wgGroupPermissions['*']['viewlinktolatest'] = false;
 $wgGroupPermissions['sysop']['viewlinktolatest'] = true;
 $egApprovedRevsAutomaticApprovals = true; // defaults to false in core meza
+// show forms to create pages
+$wgPageFormsLinkAllRedLinksToForms = true;
+
 // allow sideloading
 $wgGroupPermissions['user']['upload_by_url'] = true;
 
