@@ -82,9 +82,32 @@ list:
     $wgMSU_useDragDrop = true; // Should the drag & drop area be shown?
     $wgMSU_useMsLinks = false; // Should we allow to insert links in the style of the Extension:MsLinks?
 
-- name: OpenGraphMeta
-  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/OpenGraphMeta
+- name: RelatedArticles
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/RelatedArticles
+  version: "{{ mediawiki_default_branch }}"
+  config: |
+    $wgRelatedArticlesUseCirrusSearch = true; // requires CirrusSearch
+    $wgRelatedArticlesDescriptionSource = 'pagedescription'; // requires Description2
+    $wgRelatedArticlesLoggingSamplingRate = '0.5'; // requires EventLogging
+
+- name: PageImages
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/PageImages
+  version: "{{ mediawiki_default_branch }}"
+
+# - name: EventStreamConfig
+#   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/EventStreamConfig
+#   version: "{{ mediawiki_default_branch }}"
+
+- name: EventLogging 
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/EventLogging
+  version: "{{ mediawiki_default_branch }}"
+
+- name: CodeMirror 
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeMirror
   version: "master"
+  config: |
+    # Enables use of CodeMirror by default but still allow users to disable it
+    $wgDefaultUserOptions['usecodemirror'] = 1;
 
 - name: Description2
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Description2
