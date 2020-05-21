@@ -188,6 +188,9 @@ list:
 #
 # libraries loaded by composer
 #
+- name: PhpSpreadsheet 
+  composer: "phpoffice/phpspreadsheet"
+  version: "~1"
 - name: DataValues
   #repo: https://github.com/DataValues/DataValues.git
   composer: "data-values/data-values"
