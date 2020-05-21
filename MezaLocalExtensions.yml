@@ -58,6 +58,14 @@ list:
 - name: Gadgets
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Gadgets.git
   version: "{{ mediawiki_default_branch }}"
+
+- name: Mermaid
+  composer: "mediawiki/mermaid"
+  version: ~2.2
+  config: |
+    wfLoadExtension( 'Mermaid' );
+    $mermaidgDefaultTheme = 'neutral';
+
 - name: MobileFrontend
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/MobileFrontend.git
   version: "{{ mediawiki_default_branch }}"
@@ -73,6 +81,17 @@ list:
     $wgMSU_imgParams = '400px'; // The default parameters for inserted images
     $wgMSU_useDragDrop = true; // Should the drag & drop area be shown?
     $wgMSU_useMsLinks = false; // Should we allow to insert links in the style of the Extension:MsLinks?
+
+- name: OpenGraphMeta
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/OpenGraphMeta
+  version: "master"
+
+- name: Description2
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Description2
+  version: "master"
+  config: |
+    $wgEnableMetaDescriptionFunctions = true;
+
 - name: Nuke
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Nuke.git
   version: "{{ mediawiki_default_branch }}"
@@ -136,6 +155,7 @@ list:
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/NoTitle.git
   version: "{{ mediawiki_default_branch }}"
   legacy_load: True
+
 - name: OpenGraphMeta
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/OpenGraphMeta.git
   version: "{{ mediawiki_default_branch }}"
@@ -144,6 +164,20 @@ list:
 #  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/SimpleFarm
 #  version: "{{ mediawiki_default_branch }}"
 #  legacy_load: True
+
+- name: TextExtracts
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/TextExtracts
+  version: "{{ mediawiki_default_branch }}"
+
+- name: TwitterCards
+  repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/TwitterCards
+  version: "{{ mediawiki_default_branch }}"
+  legacy_load: true
+  config: |
+    // use fallbacks
+    $wgTwitterCardsPreferOG = false;
+    $wgTwitterCardsHandle = '@eQualityTech';
+
 - name: Widgets
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets.git
   version: "{{ mediawiki_default_branch }}"
