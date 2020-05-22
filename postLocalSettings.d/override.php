@@ -1,4 +1,8 @@
 <?php
+$wgMaxShellMemory = 1024 * 500;
+$wgMaxShellFileSize = 1024 * 500;
+
+
 $wgGroupPermissions['*']['viewlinktolatest'] = false;
 $wgGroupPermissions['sysop']['viewlinktolatest'] = true;
 $egApprovedRevsAutomaticApprovals = true; // defaults to false in core meza
