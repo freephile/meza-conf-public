@@ -1,4 +1,18 @@
 <?php
+// Turn on Bootstrap for all skins
+$wgHooks['SetupAfterCache'][] = function(){
+	\Bootstrap\BootstrapManager::getInstance()->addAllBootstrapModules();
+	return true;
+};
+
+
+$wgHooks['ParserAfterParse'][]=function( Parser &$parser, &$text, StripState &$stripState ){
+	$parser->getOutput()->addModuleStyles( 'ext.bootstrap.styles' );
+	$parser->getOutput()->addModules( 'ext.bootstrap.scripts' );
+	return true;
+};
+
+
 $wgMaxShellMemory = 1024 * 500;
 $wgMaxShellFileSize = 1024 * 500;
 
