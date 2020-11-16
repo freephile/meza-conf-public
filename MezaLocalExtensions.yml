@@ -97,16 +97,14 @@ list:
 - name: CreateRedirect
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/CreateRedirect.git
   version: "{{ mediawiki_default_branch }}"
-  legacy_load: True
 # possible widget? or just don't do it? or download the code manually
 # - name: FollowButton
 #   https://www.mediawiki.org/wiki/Extension:FollowButton
 - name: Loops
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Loops.git
   version: "{{ mediawiki_default_branch }}"
-  legacy_load: True
   config: |
-    ExtLoops::$maxLoops = 5000;
+#    ExtLoops::$maxLoops = 5000;
 - name: MagicNoCache
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/MagicNoCache.git
   version: "{{ mediawiki_default_branch }}"
@@ -114,7 +112,6 @@ list:
 - name: MyVariables
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/MyVariables.git
   version: "{{ mediawiki_default_branch }}"
-  legacy_load: True
 # unmaintained. May be problematic
 - name: NoTitle
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/NoTitle.git
@@ -384,7 +381,6 @@ list:
 - name: Scribunto
   repo: https://gerrit.wikimedia.org/r/mediawiki/extensions/Scribunto
   version: "{{ mediawiki_default_branch }}"
-  legacy_load: True
   config: |
     $wgScribuntoDefaultEngine = 'luastandalone';
     $wgScribuntoUseGeSHi = true;
