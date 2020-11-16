@@ -69,6 +69,11 @@ blender_landing_page_title: QualityBox Platform
 #   https://www.mediawiki.org/wiki/Manual:$wgPasswordSender
 #   https://www.mediawiki.org/wiki/Manual:$wgEmergencyContact
 wgPasswordSender: "no-reply@scg.wiki"
+
+# For certbot
+enable_certbot: true
+m_httpd_server_admin: "admin@equality-tech.com"
+
 # wgEmergencyContact = "another.email@example.com" # defaults to wgPassword Sender
 
 # blender_header_wiki_title: Top row wikis
